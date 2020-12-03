@@ -2,7 +2,7 @@ library(tidyverse)
 library(leaflet)
 library(shiny)
 
-data <- read.csv("SafeU_geocoded.csv")
+data <- read.csv("data/SafeU_geocoded.csv")
 data <- data %>% mutate(Date=as.Date(Date, "%m-%d-%Y"),
                         Time=as.Date(Time, "%H:%M"))
 

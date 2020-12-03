@@ -16,7 +16,7 @@ def geocode(address):
     print(lat, long)
     return (lat, long)
 
-df = pd.read_csv("SafeU_locations.csv")
+df = pd.read_csv("data/SafeU_locations.csv")
 df = df.dropna()
 df = df.assign(
     latlong = lambda df: df.Location.apply(geocode)
@@ -24,4 +24,4 @@ df = df.assign(
 for i, col in enumerate(['lat', 'long']):
     df[col] = df['latlong'].apply(lambda x: x[i])
 df = df.drop('latlong', axis=1)
-df.to_csv("SafeU_geocoded.csv")
+df.to_csv("data/SafeU_geocoded.csv")
